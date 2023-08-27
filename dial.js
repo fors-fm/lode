@@ -4,7 +4,8 @@ mgraphics.init()
 mgraphics.autofill = 0
 mgraphics.relative_coords = 0
 
-var style = "decay"
+var style = "dial"
+var bipolar = true
 
 function set_style(x) {
 	style = x
@@ -24,7 +25,7 @@ function set_value(x) {
 
 var lcdcolor = [0.993, 0.654, 0.155, 1.0]
 var inactivelcdcolor = [0.475, 0.475, 0.475, 1.0]
-var lcdbgcolor = [0.118, 0.118, 0.118, 1.0]
+var lcdbgcolor = [0.020, 0.020, 0.020, 1.0]
 var hovercolor = [
     inactivelcdcolor[0] * 1.7,
     inactivelcdcolor[1] * 1.7,
@@ -79,7 +80,7 @@ function hover_transition() {
 		mgraphics.redraw()
 		
 		if (hover) {
-			hover_state = sigmoid((arguments.callee.task.iterations / repeats), -0.875)
+			hover_state = sigmoid((arguments.callee.task.iterations / repeats), -0.85)
 		} else {
 			hover_state = sigmoid(1 - (arguments.callee.task.iterations / repeats), 0.5)
 		}
@@ -144,7 +145,11 @@ function onclick(x, y, but, cmd, shift, capslock, option, ctrl) {
 }
 
 function ondblclick(x, y) {
-    value = 0
+	if (bipolar) {
+    	value = 0.5
+	} else {
+		value = 0
+	}
 
     outlet(0, value)
     mgraphics.redraw()
@@ -216,13 +221,32 @@ function paint() {
 		
 				line_to_angle(18, 18, -230 + value * 280, 0, 7)
 				stroke()
+				
+				if (bipolar) {
+					move_to(14, 3)
+					rel_line_to(8, 0)
+					rel_line_to(0, 2)
+					rel_line_to(-4, 4)
+					rel_line_to(-4, -4)
+					rel_line_to(0, -2)
+					close_path()
+					fill_preserve()
+					
+					set_source_rgba(lcdbgcolor)
+					stroke()
+				}
+				
 				break
 				
 			case "slider":
 				set_source_rgba(inactivelcdcolor)
 				
 				for (i = 0; i < 5; ++i) {
-					rectangle(14, 7 + i * 5, 8, 2)
+					if (bipolar && i == 2) {
+						rectangle(12, 7 + i * 5, 12, 2)
+					} else {
+						rectangle(14, 7 + i * 5, 8, 2)
+					}
 					fill()
 				}
 				
