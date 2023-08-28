@@ -4,11 +4,29 @@ mgraphics.init()
 mgraphics.autofill = 0
 mgraphics.relative_coords = 0
 
+var parameters = new Dict("---parameters")
+
 var style = "dial"
 var bipolar = false
 
+function set_id(x) {
+	param_style = parameters.get("param_" + x + "::style")
+	param_range = parameters.get("param_" + x + "::bipolar")
+	
+	post(param_style)
+	
+	set_style(param_style)
+	set_range(param_range)
+}
+
 function set_style(x) {
 	style = x
+	refresh()
+    mgraphics.redraw()
+}
+
+function set_range(x) {
+	bipolar = x ? true : false
 	refresh()
     mgraphics.redraw()
 }
