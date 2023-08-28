@@ -5,7 +5,7 @@ mgraphics.autofill = 0
 mgraphics.relative_coords = 0
 
 var style = "dial"
-var bipolar = true
+var bipolar = false
 
 function set_style(x) {
 	style = x
@@ -60,9 +60,13 @@ function set_inactivelcdcolor(r, g, b, a) {
 // hover transition task
 
 var hover_state = 0
+var click_state = 0
+
 var hover_task = new Task(hover_transition, this)
+var click_task = new Task(click_transition, this)
 
 var repeats = 50
+var repeats_click = 25
 var interval = 10
 
 function hover_transition() {
@@ -87,10 +91,35 @@ function hover_transition() {
 	}
 }
 
+function click_transition() {
+	if (arguments.callee.task.iterations >= repeats_click) {
+		if (clicked) {
+			click_state = 1
+			mgraphics.redraw()
+		} else {
+			click_state = 0
+			mgraphics.redraw()
+		}
+		
+		arguments.callee.task.cancel()
+	} else {
+		mgraphics.redraw()
+		
+		if (clicked) {
+			click_state = sigmoid((arguments.callee.task.iterations / repeats_click), -0.85)
+		} else {
+			click_state = sigmoid(1 - (arguments.callee.task.iterations / repeats_click), 0.7)
+		}
+	}
+}
+
+
 // mousing states
 
 var hover = 0
 var hover_in = false
+var click_in = false
+var clicked = false
 
 var last_x = 0, last_y = 0
 var ratio_x = 0, ratio_y = 0
@@ -126,6 +155,16 @@ function onidleout(x, y) {
 
 function onclick(x, y, but, cmd, shift, capslock, option, ctrl) {
 	max.hidecursor()
+	
+	if (!click_in) {
+		clicked = true
+	
+		click_task.interval = interval
+		click_task.repeat(repeats_click)
+		click_task.execute()
+		
+		click_in = true
+	}
 	
 	// calculate the UI zoom factor by getting the ratio of the original box size
 	// and the current bpatcher window location affected by the zoom factor
@@ -166,6 +205,16 @@ function ondrag(x, y, but, cmd, shift, capslock, option, ctrl) {
 
 	// release cursor and reset position on mouse up
     if (!but) {
+		if (click_in) {
+			clicked = false
+			
+			click_task.interval = interval
+			click_task.repeat(repeats_click)
+			click_task.execute()
+		
+			click_in = false
+		}
+	
 		max.pupdate(click_x, click_y)
         max.showcursor()
 
@@ -211,16 +260,20 @@ function paint() {
 			case "dial":
 				set_source_rgba(inactivelcdcolor)
 				
-				arc(18, 18, 12, 50 * Math.PI / 180, 130 * Math.PI / 180)
+				arc(18, 18, 12 + click_state, 50 * Math.PI / 180, 130 * Math.PI / 180)
 				stroke()
 			
 				get_lcdcolor(hover_state)
-				
-				arc(18, 18, 12, 130 * Math.PI / 180, 410 * Math.PI / 180)
+		
+				set_line_width(2 + click_state)
+				arc(18, 18, 12 + click_state, 130 * Math.PI / 180, 410 * Math.PI / 180)
 				stroke()
 		
+				set_line_width(2 + click_state)
 				line_to_angle(18, 18, -230 + value * 280, 0, 7)
 				stroke()
+				
+				set_line_width(2)
 				
 				if (bipolar) {
 					move_to(14, 3)
@@ -252,11 +305,11 @@ function paint() {
 				
 				get_lcdcolor(hover_state)
 			
-				rectangle_rounded(11, 24 - value * 20, 14, 8, 4, 4)
+				rectangle_rounded(11 - 1 * click_state, 24 - value * 20, 14 + 2 * click_state, 8, 4, 4)
 				fill()
 		
 				set_source_rgba(lcdbgcolor)
-				rectangle(14, 27 - value * 20, 8, 2)
+				rectangle(14 - 1 * click_state, 27 - value * 20, 8 + 2 * click_state, 2)
 				fill()
 				break
 				
@@ -272,6 +325,7 @@ function paint() {
 				stroke()
 			
 				get_lcdcolor(hover_state)
+				set_line_width(2 + 1 * click_state)
 			
 				var x_point = 7 + value * 23
 			
