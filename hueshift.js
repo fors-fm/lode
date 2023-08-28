@@ -1,4 +1,6 @@
 var input_color = []
+var input_inactive = []
+var output_color = []
 var hue_shift = 0
 var light = 2
 var alpha = 1
@@ -6,12 +8,50 @@ var sat = 4
 
 var parameters = new Dict("---parameters")
 
+var fade_task = new Task(color_fade, this)
+
+var repeats = 50
+var interval = 10
+
+var fade_direction = 0
+
+function color_fade() {
+	var mix_factor
+	
+	if (fade_direction) {
+		mix_factor = sigmoid((arguments.callee.task.iterations) / repeats, -0.8)
+	} else {
+		mix_factor = 1 - sigmoid((arguments.callee.task.iterations) / repeats, -0.75)
+	}
+	
+	var r = mix(output_color[0], input_inactive[0], mix_factor)
+	var g = mix(output_color[1], input_inactive[1], mix_factor)
+	var b = mix(output_color[2], input_inactive[2], mix_factor)
+	
+	outlet(0, r, g, b, alpha)
+}
+
 function bang() {
 	var hue = parameters.get("color::hue")
 	var lightness = parameters.get("color::lightness")
 	
 	set_hue(hue)
 	set_light(lightness)
+}
+
+function set_state(x) {
+	if (x) {
+		fade_direction = 0
+		fade_task.interval = interval
+		fade_task.repeat(repeats)
+		fade_task.execute()
+		
+	} else {
+		fade_direction = 1
+		fade_task.interval = interval
+		fade_task.repeat(repeats)
+		fade_task.execute()
+	}
 }
 
 function set_hue(x) {
@@ -29,6 +69,13 @@ function set_sat(x) {
     convert(input_color[0], input_color[1], input_color[2])
 }
 
+function set_inactive(r, g, b, a) {
+	input_inactive[0] = r
+    input_inactive[1] = g
+    input_inactive[2] = b
+    input_inactive[3] = a
+}
+
 function input(r, g, b, a) {
     input_color[0] = r
     input_color[1] = g
@@ -42,7 +89,7 @@ function input(r, g, b, a) {
 function convert(r, g, b) {
     var hsl_conv = rgb2hsl(r * 255, g * 255, b * 255)
 
-    var output_color = hsl2rgb(
+    output_color = hsl2rgb(
         hsl_conv[0] + hue_shift,
         hsl_conv[1],
         hsl_conv[2]
@@ -112,4 +159,12 @@ function hsl2rgb(h, s, l) {
 
 function clamp(num, min, max) {
     return num <= min ? min : num >= max ? max : num
+}
+
+function sigmoid(x, y) {
+	return (x - x * y) / (y - Math.abs(x) * 2 * y + 1)
+}
+
+function mix(x, y, a) {
+    return x + a * (y - x)
 }

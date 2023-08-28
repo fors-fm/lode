@@ -7,8 +7,6 @@ var fade_task = new Task(fade_in, this)
 var repeats = 50
 var interval = 10
 
-var fade_state = 1
-
 function set_color(r, g, b, a) {
 	color[0] = r
 	color[1] = g
@@ -19,7 +17,7 @@ function set_color(r, g, b, a) {
 }
 
 function fade_in() {
-	color[3] = 1 - sigmoid((arguments.callee.task.iterations) / repeats, -0.85)
+	color[3] = 1 - sigmoid((arguments.callee.task.iterations) / repeats, -0.75)
 	outlet(0, 'bgfillcolor', color)
 }
 
