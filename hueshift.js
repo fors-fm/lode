@@ -4,7 +4,17 @@ var light = 2
 var alpha = 1
 var sat = 4
 
-function shift(x) {
+var parameters = new Dict("---parameters")
+
+function bang() {
+	var hue = parameters.get("color::hue")
+	var lightness = parameters.get("color::lightness")
+	
+	set_hue(hue)
+	set_light(lightness)
+}
+
+function set_hue(x) {
     hue_shift = x
     convert(input_color[0], input_color[1], input_color[2])
 }
