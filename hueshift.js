@@ -19,9 +19,17 @@ function color_fade() {
 	var mix_factor
 	
 	if (fade_direction) {
-		mix_factor = sigmoid((arguments.callee.task.iterations) / repeats, -0.8)
+		if (arguments.callee.task.iterations >= repeats) {
+			mix_factor = 1
+		} else {
+			mix_factor = sigmoid((arguments.callee.task.iterations) / repeats, -0.75)
+		}
 	} else {
-		mix_factor = 1 - sigmoid((arguments.callee.task.iterations) / repeats, -0.75)
+		if (arguments.callee.task.iterations >= repeats) {
+			mix_factor = 0
+		} else {
+			mix_factor = 1 - sigmoid((arguments.callee.task.iterations) / repeats, -0.85)
+		}
 	}
 	
 	var r = mix(output_color[0], input_inactive[0], mix_factor)
