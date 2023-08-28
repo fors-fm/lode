@@ -13,8 +13,6 @@ function set_id(x) {
 	param_style = parameters.get("param_" + x + "::style")
 	param_range = parameters.get("param_" + x + "::bipolar")
 	
-	post(param_style)
-	
 	set_style(param_style)
 	set_range(param_range)
 }
