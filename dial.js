@@ -292,12 +292,12 @@ function paint() {
 				set_line_width(2)
 				
 				if (bipolar) {
-					move_to(14, 3 - click_state)
-					rel_line_to(8, 0)
-					rel_line_to(0, 2)
-					rel_line_to(-4, 4)
-					rel_line_to(-4, -4)
-					rel_line_to(0, -2)
+					move_to(14, 3 - click_state * 2)
+					rel_line_to(8 + click_state, 0)
+					rel_line_to(0, 2 + click_state)
+					rel_line_to(-4 - click_state, 4)
+					rel_line_to(-4 - click_state, -4)
+					rel_line_to(0, -2 - click_state)
 					fill_preserve()
 					
 					set_source_rgba(lcdbgcolor)
