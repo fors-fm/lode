@@ -45,7 +45,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 92.0, 473.0, 34.0, 22.0 ],
+					"patching_rect" : [ 60.0, 458.0, 71.0, 22.0 ],
 					"text" : "*~ 0."
 				}
 
@@ -57,7 +57,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 128.0, 412.0, 135.0, 22.0 ],
+					"patching_rect" : [ 60.0, 411.0, 227.0, 22.0 ],
 					"text" : "poly~ poly.lowpass up 2"
 				}
 
@@ -259,7 +259,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 92.0, 537.0, 30.0, 30.0 ]
+					"patching_rect" : [ 60.0, 508.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -650,6 +650,7 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 2 ],
+					"midpoints" : [ 225.5, 387.5, 277.5, 387.5 ],
 					"source" : [ "obj-1", 3 ]
 				}
 
@@ -670,7 +671,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-28", 0 ],
+					"destination" : [ "obj-28", 1 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -779,7 +780,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-28", 1 ],
+					"destination" : [ "obj-28", 0 ],
 					"source" : [ "obj-24", 0 ]
 				}
 
