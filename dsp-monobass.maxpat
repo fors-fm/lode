@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 275.0, 312.0, 1444.0, 848.0 ],
+		"rect" : [ 127.0, 199.0, 1444.0, 848.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -45,7 +45,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 60.0, 458.0, 71.0, 22.0 ],
+					"patching_rect" : [ 60.0, 465.0, 71.0, 22.0 ],
 					"text" : "*~ 0."
 				}
 
@@ -57,7 +57,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 60.0, 411.0, 227.0, 22.0 ],
+					"patching_rect" : [ 60.0, 405.0, 227.0, 22.0 ],
 					"text" : "poly~ poly.lowpass up 2"
 				}
 
@@ -259,7 +259,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 60.0, 508.0, 30.0, 30.0 ]
+					"patching_rect" : [ 60.0, 525.0, 30.0, 30.0 ]
 				}
 
 			}
