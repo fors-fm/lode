@@ -382,9 +382,9 @@ function paint() {
 			case "shape":
 				set_source_rgba(inactivelcdcolor)
 				
-				move_to(6, 18)
-				line_to(30, 18)
-				stroke()
+				//move_to(6, 18)
+				//line_to(30, 18)
+				//stroke()
 
 				get_lcdcolor(hover_state)
 				set_line_width(2 + 1 * click_state)
