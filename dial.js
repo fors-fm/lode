@@ -248,6 +248,11 @@ function ondrag(x, y, but, cmd, shift, capslock, option, ctrl) {
             delta_x = 0.007874015748
             delta_y = 0.007874015748
         }
+
+		if (style == "slope") {
+			delta_x *= 0.5;
+			delta_y *= 0.5;
+		}
 		
 		d2x = dx * delta_x
 		d2y = dy * delta_y
@@ -347,6 +352,55 @@ function paint() {
 				move_to(6, 7)
 				curve_to(x_point - (20 * value) + 0.01, 29, x_point, 29, x_point, 29)
 				stroke()
+				break
+				
+			case "slope":
+				var value_bi = value * 2 - 1
+				
+				var value_dec = (Math.abs(clamp(value_bi, -1, 0)) * 0.5) + (clamp(value, 0.5, 1) - 0.5) * 2
+				var value_atk = (Math.abs(clamp(value_bi, -1, 0)) * 0.5)
+			
+				set_source_rgba(inactivelcdcolor)
+				
+				move_to(7 + value_dec * 23 + value_atk * 23, 29)
+				line_to(30, 29)
+				stroke()
+				
+				get_lcdcolor(hover_state)
+				set_line_width(2 + 1 * click_state)
+				
+				move_to(6, 29)
+				rel_line_to(value_atk * 22, -21)
+			
+				var x_point = (7 + value_dec * 23) + value_atk * 23
+			
+				move_to(6 + value_atk * 23, 7)
+				curve_to(x_point - (20 * value_dec) + 0.01, 29, x_point, 29, x_point, 29)
+				stroke()
+				break
+				
+			case "shape":
+				set_source_rgba(inactivelcdcolor)
+				
+				//move_to(6, 18)
+				//line_to(30, 18)
+				//stroke()
+
+				get_lcdcolor(hover_state)
+				set_line_width(2 + 1 * click_state)
+				
+				var saw = (1 - clamp(value, 0, 0.5) * 2) * 11
+				var pw = ((clamp(value, 0.5, 1) - 0.5) * 2) * 6
+				
+				move_to(6, 18)
+				rel_line_to(0, -11)
+				rel_line_to(12 + pw, saw)
+				rel_line_to(0, 11 - saw)
+				rel_line_to(0, 11 - saw)
+				rel_line_to(12 - pw, saw)
+				rel_line_to(0, -11)
+				stroke()
+				
 				break
 		}
     }
