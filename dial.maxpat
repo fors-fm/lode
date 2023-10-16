@@ -95,14 +95,6 @@
 
 			}
  ],
-		"dependency_cache" : [ 			{
-				"name" : "dial.js",
-				"bootpath" : "~/Library/CloudStorage/Dropbox/Max/cursortext",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
- ],
 		"autosave" : 0
 	}
 

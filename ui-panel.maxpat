@@ -794,7 +794,7 @@
 
 					}
 ,
-					"text" : "Depth",
+					"text" : "Ctrl 8",
 					"textcolor" : [ 0.494117647058824, 0.494117647058824, 0.509803921568627, 1.0 ],
 					"textjustification" : 1,
 					"varname" : "---text7"
@@ -877,7 +877,7 @@
 
 					}
 ,
-					"text" : "Detune",
+					"text" : "Ctrl 4",
 					"textcolor" : [ 0.494117647058824, 0.494117647058824, 0.509803921568627, 1.0 ],
 					"textjustification" : 1,
 					"varname" : "---text3"
@@ -960,7 +960,7 @@
 
 					}
 ,
-					"text" : "Decay",
+					"text" : "Ctrl 7",
 					"textcolor" : [ 0.494117647058824, 0.494117647058824, 0.509803921568627, 1.0 ],
 					"textjustification" : 1,
 					"varname" : "---text6"
@@ -1043,7 +1043,7 @@
 
 					}
 ,
-					"text" : "Shape",
+					"text" : "Ctrl 3",
 					"textcolor" : [ 0.494117647058824, 0.494117647058824, 0.509803921568627, 1.0 ],
 					"textjustification" : 1,
 					"varname" : "---text2"
@@ -1126,7 +1126,7 @@
 
 					}
 ,
-					"text" : "Attack",
+					"text" : "Ctrl 6",
 					"textcolor" : [ 0.494117647058824, 0.494117647058824, 0.509803921568627, 1.0 ],
 					"textjustification" : 1,
 					"varname" : "---text5"
@@ -1209,7 +1209,7 @@
 
 					}
 ,
-					"text" : "Res",
+					"text" : "Ctrl 2",
 					"textcolor" : [ 0.494117647058824, 0.494117647058824, 0.509803921568627, 1.0 ],
 					"textjustification" : 1,
 					"varname" : "---text1"
@@ -1292,7 +1292,7 @@
 
 					}
 ,
-					"text" : "Sub",
+					"text" : "Ctrl 5",
 					"textcolor" : [ 0.494117647058824, 0.494117647058824, 0.509803921568627, 1.0 ],
 					"textjustification" : 1,
 					"varname" : "---text4"
@@ -1375,7 +1375,7 @@
 
 					}
 ,
-					"text" : "Cutoff",
+					"text" : "Ctrl 1",
 					"textcolor" : [ 0.494117647058824, 0.494117647058824, 0.509803921568627, 1.0 ],
 					"textjustification" : 1,
 					"varname" : "---text0"
@@ -2016,28 +2016,6 @@
 					"source" : [ "obj-99", 0 ]
 				}
 
-			}
- ],
-		"dependency_cache" : [ 			{
-				"name" : "dial.js",
-				"bootpath" : "~/Dev/fors/jsui-dial",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "dial.maxpat",
-				"bootpath" : "~/Dev/fors/jsui-dial",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "set-name.js",
-				"bootpath" : "~/Dev/fors/jsui-dial",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
-				"implicit" : 1
 			}
  ],
 		"autosave" : 0
