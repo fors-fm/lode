@@ -1,0 +1,14 @@
+$Page Lode by Fors
+$TargetName Lode
+
+lode.png
+
+*Lode* by $Link *Fors*<https://fors.fm> 
+
+Description of the Lode device here
+
+Divider.tif
+
+If there are any questions, issues, or if you just want to say hello, please contact us via $Link hi@fors.fm <mailto:hi@fors.fm> 
+
+fors.png
