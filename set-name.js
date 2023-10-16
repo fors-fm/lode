@@ -5,7 +5,6 @@ function bang() {
 	
 	for (i = 0; i < 8; ++i) {
 		param_title = parameters.get("param_" + i + "::title")
-		//this.patcher.getnamed("---text" + i).message('set', param_title)
 		outlet(0, i, 'set', param_title)
 	}
 }

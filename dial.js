@@ -250,8 +250,8 @@ function ondrag(x, y, but, cmd, shift, capslock, option, ctrl) {
         }
 
 		if (style == "slope") {
-			delta_x *= 0.5;
-			delta_y *= 0.5;
+			delta_x *= 0.5
+			delta_y *= 0.5
 		}
 		
 		d2x = dx * delta_x
@@ -382,10 +382,6 @@ function paint() {
 			case "shape":
 				set_source_rgba(inactivelcdcolor)
 				
-				//move_to(6, 18)
-				//line_to(30, 18)
-				//stroke()
-
 				get_lcdcolor(hover_state)
 				set_line_width(2 + 1 * click_state)
 				
