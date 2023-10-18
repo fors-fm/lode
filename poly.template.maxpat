@@ -58,10 +58,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 993.000000000000114, 119.0, 35.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 9"
 				}
 
@@ -74,10 +70,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 915.000000000000114, 119.0, 35.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 8"
 				}
 
@@ -90,10 +82,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 837.000000000000114, 119.0, 35.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 7"
 				}
 
@@ -106,10 +94,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 759.000000000000114, 119.0, 35.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 6"
 				}
 
@@ -122,10 +106,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 681.000000000000114, 119.0, 35.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 5"
 				}
 
@@ -138,10 +118,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 603.0, 119.0, 35.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 4"
 				}
 
@@ -154,10 +130,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 525.0, 119.0, 35.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 3"
 				}
 
@@ -170,10 +142,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 447.000000000000057, 119.0, 35.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "in~ 2"
 				}
 
@@ -197,6 +165,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 993.000000000000114, 585.0, 42.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "out~ 1"
 				}
 
@@ -209,6 +181,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 55.5, 45.0, 28.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "in 1"
 				}
 
@@ -256,6 +232,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 66.0, 585.0, 35.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "out 1"
 				}
 
@@ -558,7 +538,7 @@
 							}
 , 							{
 								"box" : 								{
-									"code" : "// attack-decay-sustain-release envelope\r\n\r\nadsr(trig, gate, attack, decay, sustain, release) {\n\tHistory env(0), stage(0), trigged(0), gating(0),\n\t\t\tatk_rate(0), atk_coeff(0), atk_offset(0),\r\n\t\t\tdec_rate(0), dec_coeff(0), dec_offset(0),\n\t\t\trel_rate(0), rel_coeff(0), rel_offset(0);\n\t\t\r\n\tif (trig) {\r\n\t\tif (gate && trigged) {\r\n\t\t\t// do nothing\r\n\t\t} else {\r\n\t\t\ttrigged = 1;\r\n\t\t\t\r\n\t\t\t// rate in seconds\n\t\t\tatk_rate = samplerate * attack;\r\n\t\t\tdec_rate = samplerate * decay;\n\t\t\trel_rate = samplerate * release;\n\t\t\n\t\t\t// slope 0 = linear, slope -n = log/exp\n\t\t\trise_slope = exp(-1.5);\r\n\t\t\tfall_slope = exp(-8);\n\t\t\n\t\t\t// calculate coefficients\r\n\t\t\tatk_coeff = exp(-log((1 + rise_slope) / rise_slope) / atk_rate);\r\n\t\t\tatk_offset = (1 + rise_slope) * (1 - atk_coeff);\r\n\t\t\t\r\n\t\t\tdec_coeff = exp(-log((1 + fall_slope) / fall_slope) / dec_rate);\n\t\t\tdec_offset = (sustain - fall_slope) * (1 - dec_coeff);\n\t\t\n\t\t\trel_coeff = exp(-log((1 + fall_slope) / fall_slope) / rel_rate);\n\t\t\trel_offset = -fall_slope * (1 - rel_coeff);\n\t\t\n\t\t\t// reset & trigger envelope\n\t\t\tstage = 1;\r\n\t\t}\n\t}\t\n\t// stage 0 = idle, 1 = attack, 2 = release\n\tif (stage == 0) {\n\t\tenv = 0;\n\t} else if (gate && trigged) {\r\n \t\tif (stage == 1) {\n\t\t\tenv = atk_offset + env;\n\t\t\n\t\t\tif (env >= 1 || attack <= 0) {\n\t\t\t\tenv = 1;\n\t\t\t\tstage = 2;\n\t\t\t}\r\n\t\t} else {\r\n\t\t\tif (env <= sustain) {\r\n\t\t\t\tenv = sustain;\r\n\t\t\t} else {\r\n\t\t\t\tenv = dec_offset + env * dec_coeff;\r\n\t\t\t}\n\t\t}\r\n\t} else {\r\n\t\ttrigged = 0;\r\n\t\t\n\t\tenv = rel_offset + env * rel_coeff;\n\t\t\n\t\tif (env <= 0 || release <= 0) {\n\t\t\tenv = 0;\n\t\t\tstage = 0;\n\t\t}\r\n\t} \n\treturn env, trigged;\n}\r\n\r\n// onepole smoother for event rate signals\r\n\r\nsmooth(x, time) { \n    History prev;\n    prev = prev + time * (x - prev);        \n\n    return prev;\n}\r\n\r\n// inputs\r\n\r\nnote = in1;\r\ntrig = in2;\r\ngate = in3;\r\nvelo = pow(latch(in4, trig) / 127, 2);\r\n\r\n// parameters\r\n\r\nctl0 = in5;\r\nctl1 = in6;\r\nctl2 = in7;\r\nctl3 = in8;\r\n\r\natk = in9;\r\ndec = in10;\r\nsus = in11;\r\nrel = in12;\r\n\r\n// envelopes\r\n\r\namp_env = adsr(trig, gate, atk, dec, sus, rel);\r\n\r\n// frequency calculations\r\n\r\nfreq = mtof(note);\r\n\r\nosc = cycle(freq) * amp_env;\r\n\r\nout1 = amp_env;\r\nout2 = osc * velo;",
+									"code" : "// attack-decay-sustain-release envelope\r\n\r\nadsr(trig, gate, attack, decay, sustain, release) {\n\tHistory env(0), stage(0), trigged(0), gating(0),\r\n\t\n\t\t\tatk_rate(0), atk_coeff(0), atk_offset(0),\r\n\t\t\tdec_rate(0), dec_coeff(0), dec_offset(0),\n\t\t\trel_rate(0), rel_coeff(0), rel_offset(0);\r\n\t\t\t\r\n\t// slope 0 = linear, slope -n = log/exp\n\trise_slope = exp(-1.5);\r\n\tfall_slope = exp(-8);\n\t\t\r\n\tif (trig) {\r\n\t\tif (gate && trigged) {\r\n\t\t\t// do nothing\r\n\t\t} else {\r\n\t\t\ttrigged = 1;\r\n\t\t\t\r\n\t\t\t// rate in seconds\n\t\t\tatk_rate = samplerate * attack;\r\n\t\t\tdec_rate = samplerate * decay;\n\t\t\trel_rate = samplerate * release;\n\t\t\n\t\t\t// calculate coefficients\r\n\t\t\tatk_coeff = exp(-log((1 + rise_slope) / rise_slope) / atk_rate);\r\n\t\t\tatk_offset = (1 + rise_slope) * (1 - atk_coeff);\r\n\t\t\t\r\n\t\t\tdec_coeff = exp(-log((1 + fall_slope) / fall_slope) / dec_rate);\n\t\t\tdec_offset = (sustain - fall_slope) * (1 - dec_coeff);\n\t\t\n\t\t\trel_coeff = exp(-log((1 + fall_slope) / fall_slope) / rel_rate);\n\t\t\trel_offset = -fall_slope * (1 - rel_coeff);\n\t\t\n\t\t\t// reset & trigger envelope\n\t\t\tstage = 1;\r\n\t\t}\n\t}\t\n\t// stage 0 = idle, 1 = attack, 2 = release\n\tif (stage == 0) {\n\t\tenv = 0;\n\t} else if (gate && trigged) {\r\n \t\tif (stage == 1) {\n\t\t\tenv = atk_offset + env;\n\t\t\n\t\t\tif (env >= 1 || attack <= 0) {\n\t\t\t\tenv = 1;\n\t\t\t\tstage = 2;\n\t\t\t}\r\n\t\t} else {\r\n\t\t\tif (env <= sustain) {\r\n\t\t\t\tenv = sustain;\r\n\t\t\t} else {\r\n\t\t\t\tdec_offset = (sustain - fall_slope) * (1 - dec_coeff);\r\n\t\t\t\tenv = dec_offset + env * dec_coeff;\r\n\t\t\t}\n\t\t}\r\n\t} else {\r\n\t\ttrigged = 0;\r\n\t\t\n\t\tenv = rel_offset + env * rel_coeff;\n\t\t\n\t\tif (env <= 0 || release <= 0) {\n\t\t\tenv = 0;\n\t\t\tstage = 0;\n\t\t}\r\n\t} \n\treturn env, trigged;\n}\r\n\r\n// onepole smoother for event rate signals\r\n\r\nsmooth(x, time) { \n    History prev;\n    prev = prev + time * (x - prev);        \n\n    return prev;\n}\r\n\r\n// inputs\r\n\r\nnote = in1;\r\ntrig = in2;\r\ngate = in3;\r\nvelo = pow(latch(in4, trig) / 127, 2);\r\n\r\n// parameters\r\n\r\nctl0 = in5;\r\nctl1 = in6;\r\nctl2 = in7;\r\nctl3 = in8;\r\n\r\natk = in9;\r\ndec = in10;\r\nsus = in11;\r\nrel = in12;\r\n\r\n// envelopes\r\n\r\namp_env = adsr(trig, gate, atk, dec, sus, rel);\r\n\r\n// frequency calculations\r\n\r\nfreq = mtof(note);\r\n\r\nosc = cycle(freq) * amp_env;\r\n\r\nout1 = amp_env;\r\nout2 = osc * velo;",
 									"fontface" : 0,
 									"fontname" : "<Monospaced>",
 									"fontsize" : 12.0,
