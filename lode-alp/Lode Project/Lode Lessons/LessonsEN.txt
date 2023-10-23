@@ -1,0 +1,109 @@
+$Page Lode by Fors
+$TargetName Lode
+
+lode.png
+
+*Lode* by $Link *Fors*<https://fors.fm> 
+
+Vivid memories of transistors and warm plastic from a faraway place were distilled into a single voice of what we loved most. Lode is a monophonic bass synthesizer inspired by some of our most beloved vintage pieces– instruments that were much greater than the sum of their parts and full of character. With simplicity there is a great reward in exploring inherent boundaries and making the most out of them; something that may seem uncomplicated at first often reveals a greater depth in its subtleties and character.
+
+Lode is a collection of subtleties that we cherish, a humble but strong bass synth that is a breeze to use. Made for Live and Push in mind, it fits perfectly on a Push 2 or 3 screen with its finely tuned 8 parameters. And of course, it's standalone-compatible as well– no one should have to leave their laptop without a classic bassline at hand.
+ 
+*Learn:*
+
+-> $Link Structure <GotoPage:Structure>
+-> $Link Parameters <GotoPage:Parameters>
+
+Divider.tif
+
+fors.png
+
+$Comment --------------------------------------------------------------------------------
+$Page Structure
+$TargetName Structure
+
+Lode is based on an analog-inspired engine, equipped with one unison oscillator, one sub oscillator and a resonant 4-pole lowpass filter.
+The unison oscillator has a variable waveshape, from saw to square with adjustable pulse width. By increasing the detune amount, a second oscillator with the same timbre will be mixed in. The sub oscillator has a static square waveshape, its output can be mixed between 1 or 2 octaves below the fundamental pitch.
+
+The filter is tuned for a rougher edge, with the capability of creating resonant overtones that can be played chromatically. This lets you dial in the filter just right to find different overtones and pockets of sound that yield a great depth in sound design.
+
+When playing Lode, it's important to note that legato notes will have a slide for that classic bassline sound.
+
+Divider.tif
+
+→ $Link Parameters <GotoPage:Parameters>
+
+↑ $Link Top <GotoPage:Lode>
+
+$Comment --------------------------------------------------------------------------------
+$Page Parameters
+$TargetName Parameters
+
+Lode has 8 different parameters, each controlling a different component of the synthesizer engine.
+
+*Oscillator controls*
+
+-> *Shape*
+
+This controls the waveshape of the main oscillator.
+Between -50 and 0 this blends between a sawtooth and a squarewave, while 0 to +50 controls the pulse width of the square.
+
+-> *Detune*
+
+This controls the amount of unison detune in the main oscillator.
+
+When increased, this brings in a second oscillator with a frequency offset. Lower values (0 to 40) will result in beatings while higher values will result in pitch ratios. At a value of 50 the offset is equivalent to 7 semitones, a perfect fifth and at a value of 100 the offset is at an octave.
+
+-> *Sub*
+
+This controls the amplitude of the sub oscillator.
+When increased, the first sub output is heard, which is one octave below the main oscillator. As the value is increased further, a second octave is mixed in for ultra-low bass.
+
+-> *Decay*
+
+This controls the decay time of the amp envelope.
+The envelope has a hold and decay stage, as a note is being held the envelope will be continually outputting sound. as the note is released, the decay stage is activated and a fade-out occurs.
+
+*Filter controls*
+
+-> *Cutoff*
+
+This controls the cutoff frequency of the lowpass filter.
+The lowpass filter is always tracking the frequency of the main oscillator. This means that the cutoff setting is relative, and results in a natural sound. By decreasing the cutoff frequency less harmonics will be heard in the sound, resulting a warmer tone.
+
+-> *Res*
+
+This controls the resonance amount in the lowpass filter.
+Increasing this will result in a peak at the cutoff frequency.
+
+-> *Sweep*
+
+This controls the time of the filter cutoff envelope and is bi-directional.
+Increasing the sweep time (0 .. 50) will create longer decaying sweeps while decreasing into the negative range (-50 .. 0) will make it into a slope, meaning that it will also have a fade-in segment.
+
+-> *Depth*
+
+This controls the depth of the filter envelope modulation.
+
+→ $Link Envelopes <GotoPage:Credits>
+
+↑ $Link Top <GotoPage:Lode>
+
+$Comment --------------------------------------------------------------------------------
+$Page Credits
+$TargetName Credits
+
+fors_bg.png
+
+Thank you for the support, always.
+We hope you enjoy this instrument.
+
+*Credits:*
+
+Design & Development by Ess Mattisson
+
+If there are any questions, issues, or if you just want to say hello, please contact us via $Link hi@fors.fm <mailto:hi@fors.fm>
+
+Divider.tif
+
+↑ $Link Top <GotoPage:Lode>
