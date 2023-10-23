@@ -14,9 +14,9 @@ function set_color(r, g, b, a) {
 	color[1] = g
 	color[2] = b
 	color[3] = a
-	
+
 	if (!done) {
-		outlet(0, 'bgfillcolor', color)
+		outlet(0, "bgfillcolor", color)
 	}
 }
 
@@ -25,9 +25,9 @@ function fade_in() {
 		done = true
 		color[3] = 0
 	} else {
-		color[3] = 1 - sigmoid((arguments.callee.task.iterations) / repeats, -0.75)
+		color[3] = 1 - sigmoid(arguments.callee.task.iterations / repeats, -0.75)
 	}
-	outlet(0, 'bgfillcolor', color)
+	outlet(0, "bgfillcolor", color)
 }
 
 function bang() {
@@ -38,7 +38,7 @@ function bang() {
 
 function init() {
 	color[3] = 1
-	outlet(0, 'bgfillcolor', color)
+	outlet(0, "bgfillcolor", color)
 }
 
 function sigmoid(x, y) {
