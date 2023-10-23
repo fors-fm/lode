@@ -1,0 +1,83 @@
+# Lode
+
+**Subtractive monobass synth & device template for Max for Live**
+
+Lode is a monophonic bass synthesizer inspired by our most beloved vintage pieces. You can read more about it, and download for free, [on the Fors website.](https://fors.fm/lode)
+
+## Using the template device
+
+The `template.amxd` device is a simple polyphonic sinewave synthesizer with an ADSR amp envelope and is provided as a framework for quick and qualitative Max for Live instrument development or experimentation.
+
+To build your own device from the template provided, drag and drop `template.amxd` to a track in Live and open it for editing in Max.
+
+(It may however be a good idea to create a renamed copy of `template.amxd` and `poly.template.maxpat` to get started on a new project.)
+
+
+### Changing the synth voice
+The DSP is written in `Gen~` and uses `poly~` for polyphony (and voice muting). The DSP process is wrapped into `poly.template.maxpat` which is then instantiated in the main patch. It can be edited by opening the `p dsp` subpatch, then double-clicking on `poly.template.maxpat`, and finally open the `gen~` object inside to view the DSP code.
+
+The DSP is written in a single `codebox` object using `genexpr`. The template synth is a very simple sinewave lookup oscillator using the built-in `cycle` object:
+```
+osc = cycle(freq) * amp_env;
+```
+
+By changing the `osc` output it's possible to build your own synthesizer voice. One nice addition could for example be to add phase modulation from a second oscillator. We can also change the placeholder parameter names `ctl0` and `ctl1` to something more specific that this new functionality can achieve:
+
+```
+// parameters
+
+mod_ratio = in5;
+mod_ratio = in6;
+
+...
+
+mod_phase = phasor(freq * mod_ratio);
+osc_phase = phasor(freq) * amp_env;
+
+mod = cycle(mod_phase, index = "phase") * mod_depth;
+osc = cycle(osc_phase + mod, index = "phase");
+```
+
+Note that `Gen~` will only compile for the current voice, save the `poly.template` patch to apply it to all voices.
+
+### Configuring parameters
+
+The UI is built with the `JSUI` object, using Javascript and mgraphics. The interface is configured using the object `dict ---parameters` on launch. This stores a unique configuration of the UI elements in `json` format. From the dict you can edit the look, name and polarity of each parameter of eight.
+
+The parameters are configured in the subpatch `p config`, double-click to open it, then double-click on the `dict ---parameters` object to edit the `json` data.
+
+```
+"param_0" : 	{
+		"title" : "Ctrl 1",
+		"style" : "dial",
+		"bipolar" : 0
+	}
+```
+
+**`title`** sets the title above the parameter
+
+**`style`** sets the visual look of the UI object, available styles are:
+* `dial`, a standard control dial
+* `slider`, a standard slider
+* `decay`, exponential decay curve
+* `slope`, bipolar envelope curve (Lode specific)
+* `shape`, waveshape mix (Lode specific)
+
+**`bipolar`** configures whether the control has a indicator of a bipolar value, i.e a triangle to denote the middle on the dial style.
+
+This lets you draft an interface quickly and with ease. It's also possible to add your own styles in `dial.js` by adding a type to the style switch case in:
+```
+function paint() {
+    with (mgraphics) {
+		switch (style) {
+        	case "dial":
+        	...
+```
+
+Finally, you might want to change the ranges or naming of the `live.numbox` objects at the top-level of the patcher. These hook in the `JSUI` front-end UI to the controls of the Live API. Note that the values sent/received from the `JSUI` objects use the raw float value `0.0 .. 1.0`
+
+## License
+MIT license ([LICENSE](LICENSE) or <http://opensource.org/licenses/MIT>)
+
+## Contributing
+We provide this software as-is and in a finished state. We however encourage  continued/derivate work using Lode or the Template synthesizer as a base.
