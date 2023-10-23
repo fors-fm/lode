@@ -5,9 +5,11 @@ lode.png
 
 *Lode* by $Link *Fors*<https://fors.fm> 
 
-Vivid memories of transistors and warm plastic from a faraway place were distilled into a single voice of what we loved most. Lode is a monophonic bass synthesizer inspired by some of our most beloved vintage pieces– instruments that were much greater than the sum of their parts and full of character. With simplicity there is a great reward in exploring inherent boundaries and making the most out of them; something that may seem uncomplicated at first often reveals a greater depth in its subtleties and character.
+Vivid memories of transistors and warm plastic from a faraway place were distilled into a single voice of what we loved most. Lode is a monophonic bass synthesizer inspired by our most beloved vintage pieces; instruments that were greater than the sum of their parts and full of charm.
 
-Lode is a collection of subtleties that we cherish, a humble but strong bass synth that is a breeze to use. Made for Live and Push in mind, it fits perfectly on a Push 2 or 3 screen with its finely tuned 8 parameters. And of course, it's standalone-compatible as well– no one should have to leave their laptop without a classic bassline at hand.
+With simplicity there is a great reward in exploring inherent boundaries and making the most out of them. Something that may seem uncomplicated at first often reveals a depth in its subtleties and rich character.
+
+Lode is a collection of subtleties that we cherish, a humble but strong bass synth that is a joy to use.
  
 *Learn:*
 
@@ -21,6 +23,8 @@ fors.png
 $Comment --------------------------------------------------------------------------------
 $Page Structure
 $TargetName Structure
+
+lode.png
 
 Lode is based on an analog-inspired engine, equipped with one unison oscillator, one sub oscillator and a resonant 4-pole lowpass filter.
 The unison oscillator has a variable waveshape, from saw to square with adjustable pulse width. By increasing the detune amount, a second oscillator with the same timbre will be mixed in. The sub oscillator has a static square waveshape, its output can be mixed between 1 or 2 octaves below the fundamental pitch.
@@ -38,6 +42,8 @@ Divider.tif
 $Comment --------------------------------------------------------------------------------
 $Page Parameters
 $TargetName Parameters
+
+lode.png
 
 Lode has 8 different parameters, each controlling a different component of the synthesizer engine.
 
@@ -85,7 +91,7 @@ Increasing the sweep time (0 .. 50) will create longer decaying sweeps while dec
 
 This controls the depth of the filter envelope modulation.
 
-→ $Link Envelopes <GotoPage:Credits>
+→ $Link Credits <GotoPage:Credits>
 
 ↑ $Link Top <GotoPage:Lode>
 
