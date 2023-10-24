@@ -2,7 +2,7 @@
 
 **Subtractive monobass synth & device template for Max for Live**
 
-Lode is a monophonic bass synthesizer inspired by our most beloved vintage pieces. You can read more about it, and download it for free, [on the Fors website](https://fors.fm/lode)
+Lode is a monophonic bass synthesizer inspired by our most beloved vintage pieces. You can read more about it, and download it for free, [on the Fors website](https://fors.fm/lode).
 It's built on a framework made for rapid development of [Max for Live](https://www.ableton.com/en/live/max-for-live/) synthesizers with custom elements, leveraging Javascript to dynamically change the interface without having to alter the patch itself.
 
 Provided is the development device of Lode (`lode-dev.amxd`) and a template device (`template.amxd`) to get you started on building your own device in the same format.
