@@ -2,19 +2,20 @@
 
 **Subtractive monobass synth & device template for Max for Live**
 
-Lode is a monophonic bass synthesizer inspired by our most beloved vintage pieces. You can read more about it, and download for free, [on the Fors website.](https://fors.fm/lode)
+Lode is a monophonic bass synthesizer inspired by our most beloved vintage pieces. You can read more about it, and download it for free, [on the Fors website](https://fors.fm/lode)
+It's built on a framework made for rapid development of [Max for Live](https://www.ableton.com/en/live/max-for-live/) synthesizers with custom elements, leveraging Javascript to dynamically change the interface without having to alter the patch itself.
+
+Provided is the development device of Lode (`lode-dev.amxd`) and a template device (`template.amxd`) to get you started on building your own device in the same format.
 
 ## Using the template device
 
-The `template.amxd` device is a simple polyphonic sinewave synthesizer with an ADSR amp envelope and is provided as a framework for quick and qualitative Max for Live instrument development or experimentation.
-
+The `template.amxd` device is a simple polyphonic sinewave synthesizer with an ADSR amp envelope.
 To build your own device from the template provided, drag and drop `template.amxd` to a track in Live and open it for editing in Max.
 
 (It may however be a good idea to create a renamed copy of `template.amxd` and `poly.template.maxpat` to get started on a new project.)
 
-
 ### Changing the synth voice
-The DSP is written in `Gen~` and uses `poly~` for polyphony (and voice muting). The DSP process is wrapped into `poly.template.maxpat` which is then instantiated in the main patch. It can be edited by opening the `p dsp` subpatch, then double-clicking on `poly.template.maxpat`, and finally open the `gen~` object inside to view the DSP code.
+The DSP is written in [`Gen~`](https://docs.cycling74.com/max8/vignettes/gen_topic) and uses [`poly~`](https://docs.cycling74.com/max8/refpages/poly~) for polyphony (and voice muting). The DSP process is wrapped into `poly.template.maxpat` which is then instantiated in the main patch. It can be edited by opening the `p dsp` subpatch, then double-clicking on `poly.template.maxpat`, and finally open the `gen~` object inside to view the DSP code.
 
 The DSP is written in a single `codebox` object using `genexpr`. The template synth is a very simple sinewave lookup oscillator using the built-in `cycle` object:
 ```
@@ -42,7 +43,7 @@ Note that `Gen~` will only compile for the current voice, save the `poly.templat
 
 ### Configuring parameters
 
-The UI is built with the `JSUI` object, using Javascript and mgraphics. The interface is configured using the object `dict ---parameters` on launch. This stores a unique configuration of the UI elements in `json` format. From the dict you can edit the look, name and polarity of each parameter of eight.
+The UI is built with the [`JSUI`](https://docs.cycling74.com/max8/refpages/jsui) object, using Javascript and [mgraphics](https://docs.cycling74.com/max8/vignettes/jsmgraphics). The interface is configured using the object `dict ---parameters` on launch. This stores a unique configuration of the UI elements in `json` format. From the dict you can edit the look, name and polarity of each parameter of eight.
 
 The parameters are configured in the subpatch `p config`, double-click to open it, then double-click on the `dict ---parameters` object to edit the `json` data.
 
@@ -60,8 +61,6 @@ The parameters are configured in the subpatch `p config`, double-click to open i
 * `dial`, a standard control dial
 * `slider`, a standard slider
 * `decay`, exponential decay curve
-* `slope`, bipolar envelope curve (Lode specific)
-* `shape`, waveshape mix (Lode specific)
 
 **`bipolar`** configures whether the control has a indicator of a bipolar value, i.e a triangle to denote the middle on the dial style.
 
@@ -80,4 +79,4 @@ Finally, you might want to change the ranges or naming of the `live.numbox` obje
 MIT license ([LICENSE](LICENSE) or <http://opensource.org/licenses/MIT>)
 
 ## Contributing
-We provide this software as-is and in a finished state. We however encourage  continued/derivate work using Lode or the Template synthesizer as a base.
+We provide this software as-is and in a finished state. We however encourage derivate work in form of forks using Lode or the Template synthesizer as a base.
