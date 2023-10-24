@@ -66,7 +66,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"filename" : "dial.js",
+					"filename" : "jsui-dial.js",
 					"id" : "obj-1",
 					"maxclass" : "jsui",
 					"numinlets" : 1,
@@ -93,6 +93,14 @@
 					"source" : [ "obj-3", 0 ]
 				}
 
+			}
+ ],
+		"dependency_cache" : [ 			{
+				"name" : "jsui-dial.js",
+				"bootpath" : "~/Dev/fors/lode",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
 			}
  ],
 		"autosave" : 0
