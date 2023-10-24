@@ -73,6 +73,14 @@ function paint() {
         	...
 ```
 
+It is also possible to change the hue and lightness of the accent color by changing the last entry in the `dict --parameters`:
+```
+"color" : 	{
+		"hue" : 0, 			// range of 0 to 1
+		"lightness" : 2 	// lower values brighter
+	}
+```
+
 Finally, you might want to change the ranges or naming of the `live.numbox` objects at the top-level of the patcher. These hook in the `JSUI` front-end UI to the controls of the Live API. Note that the values sent/received from the `JSUI` objects use the raw float value `0.0 .. 1.0`
 
 ## License
