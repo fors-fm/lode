@@ -33,10 +33,10 @@ mod_ratio = in6;
 ...
 
 mod_phase = phasor(freq * mod_ratio);
-osc_phase = phasor(freq) * amp_env;
+osc_phase = phasor(freq);
 
 mod = cycle(mod_phase, index = "phase") * mod_depth;
-osc = cycle(osc_phase + mod, index = "phase");
+osc = cycle(osc_phase + mod, index = "phase") * amp_env;
 ```
 
 Note that `Gen~` will only compile for the current voice. Save the `poly.template` patch to apply it to all voices. Another option is to simply set the amount of voices used by the `poly~` object to 1 while working on the `gen~` code.
