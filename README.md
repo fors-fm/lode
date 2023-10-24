@@ -73,11 +73,11 @@ function paint() {
         	...
 ```
 
-It is also possible to change the hue and lightness of the accent color by changing the last entry in the `dict --parameters`:
+The hue and lightness of the accent color can also be changed by altering the last entry in `dict --parameters`, with `hue` ranging from 0 to 1 and `lightness` being lighter with lower values:
 ```
 "color" : 	{
-		"hue" : 0, 			// range of 0 to 1
-		"lightness" : 2 	// lower values brighter
+		"hue" : 0,
+		"lightness" : 2
 	}
 ```
 
