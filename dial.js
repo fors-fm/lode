@@ -102,12 +102,12 @@ function hover_transition() {
 		if (hover) {
 			hover_state = sigmoid(
 				arguments.callee.task.iterations / repeats,
-				-0.85,
+				-0.85
 			)
 		} else {
 			hover_state = sigmoid(
 				1 - arguments.callee.task.iterations / repeats,
-				0.5,
+				0.5
 			)
 		}
 	}
@@ -130,12 +130,12 @@ function click_transition() {
 		if (clicked) {
 			click_state = sigmoid(
 				arguments.callee.task.iterations / repeats_click,
-				-0.85,
+				-0.85
 			)
 		} else {
 			click_state = sigmoid(
 				1 - arguments.callee.task.iterations / repeats_click,
-				0.7,
+				0.7
 			)
 		}
 	}
@@ -297,7 +297,7 @@ function paint() {
 					18,
 					12 + click_state,
 					(50 * Math.PI) / 180,
-					(130 * Math.PI) / 180,
+					(130 * Math.PI) / 180
 				)
 				stroke()
 
@@ -309,7 +309,7 @@ function paint() {
 					18,
 					12 + click_state,
 					(130 * Math.PI) / 180,
-					(410 * Math.PI) / 180,
+					(410 * Math.PI) / 180
 				)
 				stroke()
 
@@ -354,7 +354,7 @@ function paint() {
 					14 + 2 * click_state,
 					8,
 					4,
-					4,
+					4
 				)
 				fill()
 
@@ -363,7 +363,7 @@ function paint() {
 					14 - 1 * click_state,
 					27 - value * 20,
 					8 + 2 * click_state,
-					2,
+					2
 				)
 				fill()
 				break
@@ -391,7 +391,7 @@ function paint() {
 					x_point,
 					29,
 					x_point,
-					29,
+					29
 				)
 				stroke()
 				break
@@ -425,7 +425,7 @@ function paint() {
 					x_point,
 					29,
 					x_point,
-					29,
+					29
 				)
 				stroke()
 				break
@@ -460,7 +460,7 @@ function get_lcdcolor(state) {
 		mix(lcdcolor[0], hovercolor[0], state),
 		mix(lcdcolor[1], hovercolor[1], state),
 		mix(lcdcolor[2], hovercolor[2], state),
-		mix(lcdcolor[3], hovercolor[3], state),
+		mix(lcdcolor[3], hovercolor[3], state)
 	)
 }
 
