@@ -28,7 +28,7 @@ By changing the `osc` output it's possible to build your own synthesizer voice. 
 // parameters
 
 mod_ratio = in5;
-mod_ratio = in6;
+mod_depth = in6;
 
 ...
 
