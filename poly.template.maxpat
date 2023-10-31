@@ -656,7 +656,7 @@
 ,
 					"patching_rect" : [ 135.0, 358.0, 877.000000000000114, 22.0 ],
 					"saved_object_attributes" : 					{
-						"exportfolder" : "Macintosh HD:/Users/ess/Desktop/fuck/"
+						
 					}
 ,
 					"text" : "gen~"
