@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 5,
+			"minor" : 6,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -61,8 +61,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 5,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -175,8 +175,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 5,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -441,9 +441,9 @@
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
-						"editing_bgcolor" : [ 0.305882352941176, 0.305882352941176, 0.313725490196078, 1.0 ],
+						"editing_bgcolor" : [ 0.203921568627451, 0.203921568627451, 0.215686274509804, 1.0 ],
 						"globalpatchername" : "",
-						"locked_bgcolor" : [ 0.305882352941176, 0.305882352941176, 0.313725490196078, 1.0 ],
+						"locked_bgcolor" : [ 0.203921568627451, 0.203921568627451, 0.215686274509804, 1.0 ],
 						"tags" : ""
 					}
 ,
@@ -482,6 +482,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 240.0, 585.0, 42.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "out~ 1"
 				}
 
@@ -494,6 +498,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 474.0, 45.0, 28.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "in 2"
 				}
 
@@ -506,6 +514,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 240.0, 45.0, 28.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "in 1"
 				}
 
@@ -553,6 +565,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 52.0, 585.0, 35.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "out 1"
 				}
 
@@ -596,6 +612,7 @@
 , 			{
 				"box" : 				{
 					"addpoints_with_curve" : [ 0.0, 0.0, 0, 0.0, 0.5, 0.5, 0, -0.6, 1.0, 1.0, 0, 0.6 ],
+					"classic_curve" : 1,
 					"domain" : 1.0,
 					"gridstep_x" : 1.0,
 					"id" : "obj-42",
@@ -612,6 +629,7 @@
 , 			{
 				"box" : 				{
 					"addpoints_with_curve" : [ 0.0, 0.0, 0, 0.0, 0.5, 0.583333333333333, 0, 0.6, 0.75, 0.75, 0, 0.3, 0.887978142076503, 0.95, 0, 0.0, 1.0, 1.0, 0, -0.5 ],
+					"classic_curve" : 1,
 					"domain" : 1.0,
 					"gridstep_x" : 1.0,
 					"id" : "obj-41",
@@ -652,6 +670,7 @@
 , 			{
 				"box" : 				{
 					"addpoints_with_curve" : [ 0.0, 0.0, 0, 0.0, 1.0, 1.0, 0, 0.7 ],
+					"classic_curve" : 1,
 					"domain" : 1.0,
 					"gridstep_x" : 1.0,
 					"id" : "obj-26",
@@ -668,6 +687,7 @@
 , 			{
 				"box" : 				{
 					"addpoints_with_curve" : [ 0.0, 0.0, 0, 0.0, 0.45, 0.5, 0, -0.5, 0.5, 0.5, 0, -0.5, 0.55, 0.5, 0, 0.0, 1.0, 1.0, 0, -0.4 ],
+					"classic_curve" : 1,
 					"domain" : 1.0,
 					"gridstep_x" : 1.0,
 					"id" : "obj-19",
@@ -684,6 +704,7 @@
 , 			{
 				"box" : 				{
 					"addpoints_with_curve" : [ 0.0, 0.0, 0, 0.0, 1.0, 1.0, 0, -0.5 ],
+					"classic_curve" : 1,
 					"domain" : 1.0,
 					"gridstep_x" : 1.0,
 					"id" : "obj-17",
@@ -984,8 +1005,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 5,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1113,7 +1134,7 @@
 							}
 , 							{
 								"box" : 								{
-									"code" : "// attack-release envelope \r\n\r\nar(trig, gate, attack, release) {\n\tHistory env(0), stage(0),\n\t\t\tatk_rate(0), atk_coeff(0), atk_offset(0),\n\t\t\trel_rate(0), rel_coeff(0), rel_offset(0);\n\t\t\r\n\tif (trig) {\r\n\t\t// rate in seconds\n\t\tatk_rate = samplerate * attack;\n\t\trel_rate = samplerate * release;\n\t\t\n\t\t// slope 0 = linear, slope -n = log/exp\n\t\trel_slope = exp(-8);\n\t\t\n\t\t// calculate coefficients\n\t\tatk_offset = 1 / atk_rate;\n\t\t\n\t\trel_coeff = exp(-log((1 + rel_slope) / rel_slope) / rel_rate);\n\t\trel_offset = -rel_slope * (1 - rel_coeff);\n\t\t\n\t\t// reset & trigger envelope\n\t\tstage = 1;\n\t}\t\n\n\t// stage 0 = idle, 1 = attack, 2 = decay\n\tif (stage == 0) {\n\t\tenv = 0;\n\t} else if (stage == 1) {\n\t\tenv = atk_offset + env;\r\n\t\t\r\n\t\tif (!gate) {\r\n\t\t\tstage = 2;\r\n\t\t}\n\t\t\n\t\tif (env >= 1 || attack <= 0) {\n\t\t\tenv = 1;\n\t\t\tstage = 2;\n\t\t}\r\n\t} else {\n\t\tenv = rel_offset + env * rel_coeff;\n\t\t\n\t\tif (env <= 0 || release <= 0) {\n\t\t\tenv = 0;\n\t\t\tstage = 0;\n\t\t}\r\n\t}\n\treturn env;\n}\r\n\r\n// attack-hold-release envelope\r\n\r\nahr(trig, gate, attack, release) {\n\tHistory env(0), stage(0), trigged(0), gating(0),\n\t\t\tatk_rate(0), atk_coeff(0), atk_offset(0),\n\t\t\trel_rate(0), rel_coeff(0), rel_offset(0);\n\t\t\r\n\tif (trig) {\r\n\t\tif (gate && trigged) {\r\n\t\t\t// do nothing\r\n\t\t} else {\r\n\t\t\ttrigged = 1;\r\n\t\t\t\r\n\t\t\t// rate in seconds\n\t\t\tatk_rate = samplerate * attack;\n\t\t\trel_rate = samplerate * release;\n\t\t\n\t\t\t// slope 0 = linear, slope -n = log/exp\n\t\t\trel_slope = exp(-8);\n\t\t\n\t\t\t// calculate coefficients\r\n\t\t\tatk_offset = 1 / atk_rate;\n\t\t\n\t\t\trel_coeff = exp(-log((1 + rel_slope) / rel_slope) / rel_rate);\n\t\t\trel_offset = -rel_slope * (1 - rel_coeff);\n\t\t\n\t\t\t// reset & trigger envelope\n\t\t\tstage = 1;\r\n\t\t}\n\t}\t\n\n\t// stage 0 = idle, 1 = attack, 2 = decay\n\tif (stage == 0) {\n\t\tenv = 0;\n\t} else if (gate && trigged) {\r\n \t\tif (stage == 1) {\n\t\t\tenv = atk_offset + env;\n\t\t\n\t\t\tif (env >= 1 || attack <= 0) {\n\t\t\t\tenv = 1;\n\t\t\t\tstage = 2;\n\t\t\t}\r\n\t\t} else {\n\t\t\tenv = env;\n\t\t}\r\n\t} else {\r\n\t\ttrigged = 0;\r\n\t\t\n\t\tenv = rel_offset + env * rel_coeff;\n\t\t\n\t\tif (env <= 0 || release <= 0) {\n\t\t\tenv = 0;\n\t\t\tstage = 0;\n\t\t}\r\n\t} \n\treturn env, trigged;\n}\r\n\r\n// branchless phasor\r\n\r\nph(freq) {\r\n\tHistory phase(0);\r\n\t\r\n\tinc = freq / samplerate;\r\n\t\r\n\tphase += inc;\r\n\tphase -= phase >= 1;\r\n\t\r\n\treturn phase;\r\n}\r\n\r\n// frequency-compensated phase modulation operator\r\n\r\nop(freq, mult, ph, pm, fb) {\r\n\tHistory fbk(0), osc(0);\r\n\t\r\n\tratio = freq * mult;\r\n\t\r\n\tnorm_freq = (ratio) / samplerate;\r\n\tfb_factor = 13 * pow(0.5 - norm_freq, 4);\r\n\t\r\n\tphase = ph(ratio);\r\n\tosc = cycle((phase - 0.25 + ph) + fbk + pm, index = \"phase\");\r\n\t\r\n\tif (fb > 0) {\r\n\t\tfbk = mix(osc * (fb * fb_factor), fbk, 0.5);\r\n\t}\r\n\tif (fb < 0) {\r\n\t\tfbk = mix((osc * osc) * (fb * fb_factor), fbk, 0.5);\r\n\t}\r\n\t\r\n\treturn osc;\r\n}\r\n\r\n// pm-based squarewave oscillator with adjustable duty\r\n\r\npulse(freq, width, factor) {\r\n\tHistory pw, pwm, osc;\r\n\t\r\n\twidth = width + 0.02;\r\n\t\r\n\tpw = op(freq, -1, 0.40, 0, 0) * width * factor;\r\n\tpulse = op(freq, 2, 0, pw * 0.8, 0.375) * 0.145 * factor;\r\n\tosc = op(freq, 1, 0, pulse + pw * 0.41, -0.24);\r\n\t\r\n\treturn osc;\r\n}\r\n\r\n// pm-based sawtooth oscillator\r\n\r\nsaw(freq, width, factor) {\r\n\tHistory osc;\r\n\t\r\n\tshaper = op(freq, 1, 0.0795, 0, 0.4) * 0.2 * factor;\r\n\tosc = op(freq, 1, 0.0795, shaper, 0.3);\r\n\t\r\n\treturn osc;\r\n}\r\n\r\n// onepole smoother for event rate signals\r\n\r\nsmooth(x, time) { \n    History prev;\n    prev = prev + time * (x - prev);        \n\n    return prev;\n}\r\n\r\nParam \tcut, res, fil_dep,\r\n\t\tshape, sub, detune, slide,\r\n\t\tatk, dec, fdec;\r\n\r\nHistory slide_time;\r\n\r\n// inputs\r\n\r\nnote = in1;\r\ntrig = in2;\r\ngate = in3;\r\nbend = in4;\r\n\r\n// parameters\r\n\r\ncut_ = smooth(cut * 127, 0.005);\r\nres_ = smooth(res * 8.3 + 1, 0.005);\r\nshape_ = smooth(shape, 0.005);\r\nsub_ = smooth(sub, 0.005);\r\n\r\ndetune_hz = smooth(detune * 128, 0.005);\r\ndetune_note = smooth(detune * 12, 0.005);\r\ndetune_type = (clip(detune, 0.05, 0.1) - 0.05) * 20;\r\n\r\nfdec_uni = fdec * 2 - 1;\r\nfatk = abs(clip(fdec_uni, -1, 0)) * 8;\r\nfatk = smooth(fatk + 0.004, 0.005);\r\n\r\ndec_ = smooth(dec * 16 + 0.01, 0.005);\r\nfdec_ = smooth(abs(fdec_uni) * 32 + 0.01, 0.005);\r\n\r\nshape_mix = clip(shape_, 0, 0.5) * 2;\r\npulse_width = (clip(shape_, 0.5, 1) - 0.5) * 2;\r\n\r\ndetune_mix = smooth(clip(detune_note, 0, 0.0001) * 10000, 0.0001);\r\n\r\nsub_oct1_mix = clip(sub_, 0, 0.5) * 2;\r\nsub_oct2_mix = (clip(sub_, 0.5, 1) - 0.5) * 2;\r\n\r\n// envelopes\r\n\r\namp_env, trig_state = ahr(trig, gate, 0.004, dec_);\r\nfil_env = ar(trig, gate, fatk, fdec_);\r\n\r\n// frequency calculations\r\n\r\nnote = note + (bend * 12);\r\n\r\nlast_note = latch(note, delta(trig_state) > 0);\r\nslide_ms = mstosamps(24);\r\n\r\nif (trig_state) {\r\n\tif (note != last_note) {\r\n\t\tslide_time = slide_ms;\r\n\t}\r\n} else {\r\n\tslide_time = 0;\r\n}\r\n\r\nnote_ = slide(note, slide_time, slide_time);\r\n\r\nfreq = mtof(note_);\r\n\r\nfreq_detune = mtof(note_ + detune_note * detune_type) + detune_hz * (1 - detune_type);\r\nfreq_sub_oct1 = mtof(note_ - 12);\r\nfreq_sub_oct2 = mtof(note_ - 24);\r\n\r\nfil_dep_ = smooth(fil_dep * 127, 0.005);\r\n\r\ncutoff = mtof(smooth(cut_, 0.005) + (note_ - 24) + fil_env * fil_dep_);\r\ncutoff = clip(cutoff, 1, samplerate / 2 - 500);\r\n\r\nnorm_freq = freq / samplerate;\r\nnorm_freq_detune = freq_detune / samplerate;\r\nnorm_freq_sub = freq_sub_oct1 / samplerate;\r\n\r\npm_factor = 14 * pow(0.5 - norm_freq, 4);\r\npm_factor_detune = 14 * pow(0.5 - norm_freq_detune, 4);\r\npm_factor_sub = 14 * pow(0.5 - norm_freq_sub, 4);\r\n\r\n// oscillators\r\n\r\nosc_pulse = pulse(freq, pulse_width, pm_factor);\r\nosc_pulse_detune = pulse(freq_detune, pulse_width, pm_factor_detune);\r\n\r\npulse_mix = osc_pulse + osc_pulse_detune * detune_mix;\r\n\r\nosc_saw = saw(freq, 0, pm_factor);\r\nosc_saw_detune = saw(freq_detune, 0, pm_factor_detune);\r\n\r\nsaw_mix = osc_saw + osc_saw_detune * detune_mix;\r\n\r\nosc_sub_oct1 = pulse(freq_sub_oct1, 0, pm_factor_sub);\r\nosc_sub_oct2 = pulse(freq_sub_oct2, 0, pm_factor_sub);\r\n\r\nsub_mix = mix(osc_sub_oct1 * sub_oct1_mix, osc_sub_oct2, sub_oct2_mix);\r\nosc_mix = mix(saw_mix, pulse_mix, shape_mix) + sub_mix;\r\n\r\nout1 = osc_mix;\r\nout2 = amp_env;\r\nout3 = cutoff;\r\nout4 = res_;",
+									"code" : "// attack-release envelope \r\n\r\nar(trig, gate, attack, release) {\n\tHistory env(0), stage(0),\n\t\t\tatk_rate(0), atk_coeff(0), atk_offset(0),\n\t\t\trel_rate(0), rel_coeff(0), rel_offset(0);\n\t\t\r\n\tif (trig) {\r\n\t\t// rate in seconds\n\t\tatk_rate = samplerate * attack;\n\t\trel_rate = samplerate * release;\n\t\t\n\t\t// slope 0 = linear, slope -n = log/exp\n\t\trel_slope = exp(-8);\n\t\t\n\t\t// calculate coefficients\n\t\tatk_offset = 1 / atk_rate;\n\t\t\n\t\trel_coeff = exp(-log((1 + rel_slope) / rel_slope) / rel_rate);\n\t\trel_offset = -rel_slope * (1 - rel_coeff);\n\t\t\n\t\t// reset & trigger envelope\n\t\tstage = 1;\n\t}\t\n\n\t// stage 0 = idle, 1 = attack, 2 = decay\n\tif (stage == 0) {\n\t\tenv = 0;\n\t} else if (stage == 1) {\n\t\tenv = atk_offset + env;\r\n\t\t\r\n\t\tif (!gate) {\r\n\t\t\tstage = 2;\r\n\t\t}\n\t\t\n\t\tif (env >= 1 || attack <= 0) {\n\t\t\tenv = 1;\n\t\t\tstage = 2;\n\t\t}\r\n\t} else {\n\t\tenv = rel_offset + env * rel_coeff;\n\t\t\n\t\tif (env <= 0 || release <= 0) {\n\t\t\tenv = 0;\n\t\t\tstage = 0;\n\t\t}\r\n\t}\n\treturn env;\n}\r\n\r\n// attack-hold-release envelope\r\n\r\nahr(trig, gate, attack, release) {\n\tHistory env(0), stage(0), trigged(0), gating(0),\n\t\t\tatk_rate(0), atk_coeff(0), atk_offset(0),\n\t\t\trel_rate(0), rel_coeff(0), rel_offset(0);\n\t\t\r\n\tif (trig) {\r\n\t\tif (gate && trigged) {\r\n\t\t\t// do nothing\r\n\t\t} else {\r\n\t\t\ttrigged = 1;\r\n\t\t\t\r\n\t\t\t// rate in seconds\n\t\t\tatk_rate = samplerate * attack;\n\t\t\trel_rate = samplerate * release;\n\t\t\n\t\t\t// slope 0 = linear, slope -n = log/exp\n\t\t\trel_slope = exp(-8);\n\t\t\n\t\t\t// calculate coefficients\r\n\t\t\tatk_offset = 1 / atk_rate;\n\t\t\n\t\t\trel_coeff = exp(-log((1 + rel_slope) / rel_slope) / rel_rate);\n\t\t\trel_offset = -rel_slope * (1 - rel_coeff);\n\t\t\n\t\t\t// reset & trigger envelope\n\t\t\tstage = 1;\r\n\t\t}\n\t}\t\n\n\t// stage 0 = idle, 1 = attack, 2 = decay\n\tif (stage == 0) {\n\t\tenv = 0;\n\t} else if (gate && trigged) {\r\n \t\tif (stage == 1) {\n\t\t\tenv = atk_offset + env;\n\t\t\n\t\t\tif (env >= 1 || attack <= 0) {\n\t\t\t\tenv = 1;\n\t\t\t\tstage = 2;\n\t\t\t}\r\n\t\t} else {\n\t\t\tenv = env;\n\t\t}\r\n\t} else {\r\n\t\ttrigged = 0;\r\n\t\t\n\t\tenv = rel_offset + env * rel_coeff;\n\t\t\n\t\tif (env <= 0 || release <= 0) {\n\t\t\tenv = 0;\n\t\t\tstage = 0;\n\t\t}\r\n\t} \n\treturn env, trigged;\n}\r\n\r\n// branchless phasor\r\n\r\nph(freq) {\r\n\tHistory phase(0);\r\n\t\r\n\tinc = freq / samplerate;\r\n\t\r\n\tphase += inc;\r\n\tphase -= phase >= 1;\r\n\t\r\n\treturn phase;\r\n}\r\n\r\n// frequency-compensated phase modulation operator\r\n\r\nop(freq, mult, ph, pm, fb) {\r\n\tHistory fbk(0), osc(0);\r\n\t\r\n\tratio = freq * mult;\r\n\t\r\n\tnorm_freq = (ratio) / samplerate;\r\n\tfb_factor = 13 * pow(0.5 - norm_freq, 4);\r\n\t\r\n\tphase = ph(ratio);\r\n\tosc = cycle((phase - 0.25 + ph) + fbk + pm, index = \"phase\");\r\n\t\r\n\tif (fb > 0) {\r\n\t\tfbk = mix(osc * (fb * fb_factor), fbk, 0.5);\r\n\t}\r\n\tif (fb < 0) {\r\n\t\tfbk = mix((osc * osc) * (fb * fb_factor), fbk, 0.5);\r\n\t}\r\n\t\r\n\treturn osc;\r\n}\r\n\r\n// pm-based squarewave oscillator with adjustable duty\r\n\r\npulse(freq, width, factor) {\r\n\tHistory pw, pwm, osc;\r\n\t\r\n\twidth = width + 0.02;\r\n\t\r\n\tpw = op(freq, -1, 0.40, 0, 0) * width * factor;\r\n\tpulse = op(freq, 2, 0, pw * 0.8, 0.375) * 0.145 * factor;\r\n\tosc = op(freq, 1, 0, pulse + pw * 0.41, -0.24);\r\n\t\r\n\treturn osc;\r\n}\r\n\r\n// pm-based sawtooth oscillator\r\n\r\nsaw(freq, width, factor) {\r\n\tHistory osc;\r\n\t\r\n\tshaper = op(freq, 1, 0.0795, 0, 0.4) * 0.2 * factor;\r\n\tosc = op(freq, 1, 0.0795, shaper, 0.3);\r\n\t\r\n\treturn osc;\r\n}\r\n\r\n// onepole smoother for event rate signals\r\n\r\nsmooth(x, time) { \n    History prev;\n    prev = prev + time * (x - prev);        \n\n    return prev;\n}\r\n\r\nParam \tcut, res, fil_dep,\r\n\t\tshape, sub, detune, slide,\r\n\t\tatk, dec, fdec;\r\n\r\nHistory slide_time;\r\n\r\n// inputs\r\n\r\nnote = in1;\r\ntrig = in2;\r\ngate = in3;\r\nbend = in4;\r\n\r\n// parameters\r\n\r\ncut_ = smooth(cut * 127, 0.005);\r\nres_ = smooth(res * 8.3 + 1, 0.005);\r\nshape_ = smooth(shape, 0.005);\r\nsub_ = smooth(sub, 0.005);\r\n\r\ndetune_hz = smooth(detune * 128, 0.005);\r\ndetune_note = smooth(detune * 12, 0.005);\r\ndetune_type = (clip(detune, 0.05, 0.1) - 0.05) * 20;\r\n\r\nfdec_uni = fdec * 2 - 1;\r\nfatk = abs(clip(fdec_uni, -1, 0)) * 8;\r\nfatk = smooth(fatk + 0.004, 0.005);\r\n\r\ndec_ = smooth(dec * 16 + 0.01, 0.005);\r\nfdec_ = smooth(abs(fdec_uni) * 32 + 0.01, 0.005);\r\n\r\nshape_mix = clip(shape_, 0, 0.5) * 2;\r\npulse_width = (clip(shape_, 0.5, 1) - 0.5) * 2;\r\n\r\ndetune_mix = smooth(clip(detune_note, 0, 0.0001) * 10000, 0.0001);\r\n\r\nsub_oct1_mix = clip(sub_, 0, 0.5) * 2;\r\nsub_oct2_mix = (clip(sub_, 0.5, 1) - 0.5) * 2;\r\n\r\n// envelopes\r\n\r\namp_env, trig_state = ahr(trig, gate, 0.004, dec_);\r\nfil_env = ar(trig, gate, fatk, fdec_);\r\n\r\n// frequency calculations\r\n\r\nnote = note + (bend * 48);\r\n\r\nlast_note = latch(note, delta(trig_state) > 0);\r\nslide_ms = mstosamps(24);\r\n\r\nif (trig_state) {\r\n\tif (note != last_note) {\r\n\t\tslide_time = slide_ms;\r\n\t}\r\n} else {\r\n\tslide_time = 0;\r\n}\r\n\r\nnote_ = slide(note, slide_time, slide_time);\r\n\r\nfreq = mtof(note_);\r\n\r\nfreq_detune = mtof(note_ + detune_note * detune_type) + detune_hz * (1 - detune_type);\r\nfreq_sub_oct1 = mtof(note_ - 12);\r\nfreq_sub_oct2 = mtof(note_ - 24);\r\n\r\nfil_dep_ = smooth(fil_dep * 127, 0.005);\r\n\r\ncutoff = mtof(smooth(cut_, 0.005) + (note_ - 24) + fil_env * fil_dep_);\r\ncutoff = clip(cutoff, 1, samplerate / 2 - 500);\r\n\r\nnorm_freq = freq / samplerate;\r\nnorm_freq_detune = freq_detune / samplerate;\r\nnorm_freq_sub = freq_sub_oct1 / samplerate;\r\n\r\npm_factor = 14 * pow(0.5 - norm_freq, 4);\r\npm_factor_detune = 14 * pow(0.5 - norm_freq_detune, 4);\r\npm_factor_sub = 14 * pow(0.5 - norm_freq_sub, 4);\r\n\r\n// oscillators\r\n\r\nosc_pulse = pulse(freq, pulse_width, pm_factor);\r\nosc_pulse_detune = pulse(freq_detune, pulse_width, pm_factor_detune);\r\n\r\npulse_mix = osc_pulse + osc_pulse_detune * detune_mix;\r\n\r\nosc_saw = saw(freq, 0, pm_factor);\r\nosc_saw_detune = saw(freq_detune, 0, pm_factor_detune);\r\n\r\nsaw_mix = osc_saw + osc_saw_detune * detune_mix;\r\n\r\nosc_sub_oct1 = pulse(freq_sub_oct1, 0, pm_factor_sub);\r\nosc_sub_oct2 = pulse(freq_sub_oct2, 0, pm_factor_sub);\r\n\r\nsub_mix = mix(osc_sub_oct1 * sub_oct1_mix, osc_sub_oct2, sub_oct2_mix);\r\nosc_mix = mix(saw_mix, pulse_mix, shape_mix) + sub_mix;\r\n\r\nout1 = osc_mix;\r\nout2 = amp_env;\r\nout3 = cutoff;\r\nout4 = res_;",
 									"fontface" : 0,
 									"fontname" : "<Monospaced>",
 									"fontsize" : 12.0,
@@ -1194,10 +1215,6 @@
 					}
 ,
 					"patching_rect" : [ 240.0, 358.0, 253.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"exportfolder" : "Macintosh HD:/Users/ess/Desktop/fuck/"
-					}
-,
 					"text" : "gen~"
 				}
 
