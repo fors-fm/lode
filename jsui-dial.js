@@ -152,7 +152,6 @@ var last_x = 0, last_y = 0
 var ratio_x = 0, ratio_y = 0
 var click_x = 0, click_y = 0
 var first_drag = true
-var drag_offset = 0
 
 function onidle(x, y, button, cmd, shift, capslock, option, ctrl) {
 	hover = 1
@@ -201,8 +200,8 @@ function onclick(x, y, but, cmd, shift, capslock, option, ctrl) {
 	ratio_y = (patcher.wind.location[3] - patcher.wind.location[1]) / box.rect[3]
 
 	// store bpatcher position which will be used to calculate the cursor delta
-	last_x = patcher.wind.location[0] + Math.round(drag_offset * ratio_x)
-	last_y = patcher.wind.location[1] + Math.round(drag_offset * ratio_y)
+	last_x = patcher.wind.location[0]
+	last_y = patcher.wind.location[1]
 
 	// get and scale relative cursor position for resetting to initial click location
 	click_x = Math.round(patcher.wind.location[0] + x * ratio_x)
@@ -222,8 +221,6 @@ function ondblclick(x, y) {
 	outlet(0, value)
 	mgraphics.redraw()
 }
-
-var drag = [0, 0]
 
 function ondrag(x, y, but, cmd, shift, capslock, option, ctrl) {
     var dy = 0,
@@ -260,8 +257,8 @@ function ondrag(x, y, but, cmd, shift, capslock, option, ctrl) {
         }
     } else {
         // calculate the delta between initial cursor position and after drag
-        dx = last_x + x - last_x - drag_offset
-        dy = last_y + y - last_y - drag_offset
+        dx = last_x + x - last_x
+        dy = last_y + y - last_y
 
         // increase resolution if shift modifier key is held down
         if (shift) {
