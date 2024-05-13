@@ -1,0 +1,3 @@
+[submodule "m4l-versioncheck"]
+	path = m4l-versioncheck
+	url = git@github.com:fors-fm/m4l-versioncheck.git

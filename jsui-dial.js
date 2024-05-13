@@ -151,6 +151,7 @@ var clicked = false
 var last_x = 0, last_y = 0
 var ratio_x = 0, ratio_y = 0
 var click_x = 0, click_y = 0
+var first_drag = true
 
 function onidle(x, y, button, cmd, shift, capslock, option, ctrl) {
 	hover = 1
@@ -206,8 +207,8 @@ function onclick(x, y, but, cmd, shift, capslock, option, ctrl) {
 	click_x = Math.round(patcher.wind.location[0] + x * ratio_x)
 	click_y = Math.round(patcher.wind.location[1] + y * ratio_y)
 
-	// move cursor to expected position for delta calculation
-	max.pupdate(last_x, last_y)
+	// initialize drag detection
+	first_drag = true
 }
 
 function ondblclick(x, y) {
@@ -222,64 +223,72 @@ function ondblclick(x, y) {
 }
 
 function ondrag(x, y, but, cmd, shift, capslock, option, ctrl) {
-	var dy = 0,
-		d2y = 0
-	var dx = 0,
-		d2x = 0
+    var dy = 0,
+        d2y = 0
+    var dx = 0,
+        d2x = 0
 
-	var delta_x
-	var delta_y
+    var delta_x
+    var delta_y
 
-	// release cursor and reset position on mouse up
-	if (!but) {
-		if (click_in) {
-			clicked = false
+    if (!but) {
+        if (click_in) {
+            clicked = false
 
-			click_task.interval = interval
-			click_task.repeat(repeats_click)
-			click_task.execute()
+            click_task.interval = interval
+            click_task.repeat(repeats_click)
+            click_task.execute()
 
-			click_in = false
-		}
+            click_in = false
+        }
+        max.pupdate(click_x, click_y)
+        max.showcursor()
 
-		max.pupdate(click_x, click_y)
-		max.showcursor()
+        mgraphics.redraw()
+    }
+    
+    // ensure we get the delta after the mouse has been re-positioned
+    if (first_drag) {
+    	if (!but) {
+    		max.pupdate(click_x, click_y)
+    	} else {
+        	max.pupdate(last_x, last_y)
+        	first_drag = false
+        }
+    } else {
+        // calculate the delta between initial cursor position and after drag
+        dx = last_x + x - last_x
+        dy = last_y + y - last_y
 
-		mgraphics.redraw()
-	} else {
-		// calculate the delta between initial cursor position and after drag
-		dx = last_x + x - last_x
-		dy = last_y + y - last_y
+        // increase resolution if shift modifier key is held down
+        if (shift) {
+            delta_x = 0.0007874015748
+            delta_y = 0.0007874015748
+        } else {
+            delta_x = 0.007874015748
+            delta_y = 0.007874015748
+        }
 
-		// increase resolution if shift modifier key is held down
-		if (shift) {
-			delta_x = 0.0007874015748
-			delta_y = 0.0007874015748
-		} else {
-			delta_x = 0.007874015748
-			delta_y = 0.007874015748
-		}
+        if (style == "slope") {
+            delta_x *= 0.5
+            delta_y *= 0.5
+        }
 
-		if (style == "slope") {
-			delta_x *= 0.5
-			delta_y *= 0.5
-		}
+        d2x = dx * delta_x
+        d2y = dy * delta_y
 
-		d2x = dx * delta_x
-		d2y = dy * delta_y
+        // add scaled delta to the output value and clamp to parameter range
+        value = clamp(value - d2y, 0, 1)
 
-		// add scaled delta to the output value and clamp to parameter range
-		value = clamp(value - d2y, 0, 1)
+        // reset cursor position if it has changed, we do this to be able to
+        // calculate the delta from the same exact position on every drag
+        if (dy > 0 || dy < 0 || dx > 0 || dx < 0) {
+            max.pupdate(last_x, last_y)
+        }
 
-		// reset cursor position if it has changed, we do this to be able to
-		// calculate the delta from the same exact position on every drag
-		if (dy > 0 || dy < 0 || dx > 0 || dx < 0) {
-			max.pupdate(last_x, last_y)
-		}
-
-		mgraphics.redraw()
-		outlet(0, value)
-	}
+        mgraphics.redraw()
+        outlet(0, value)
+    }
 }
 
 function paint() {
@@ -287,7 +296,7 @@ function paint() {
 	mgraphics.set_line_join("round")
 	mgraphics.set_line_width(2)
 
-	with (mgraphics) {
+	with (mgraphics) {		
 		switch (style) {
 			case "dial":
 				set_source_rgba(inactivelcdcolor)
